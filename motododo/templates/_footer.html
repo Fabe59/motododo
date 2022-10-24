@@ -1,0 +1,23 @@
+<footer class="bg-light py-3">
+  <div class="col-lg-12 d-flex">
+    <div class="col-lg-4 text-center"><a href="{% url 'legals' %}">Mentions légales</a></div>
+    <div class="col-lg-4 small text-center">&copy; Copyright {% now 'Y' %} &middot; MotoDodo &middot; All rights reserved</div>
+    <div class="col-lg-4 text-center"><a href="{% url 'home' %}#contact">Contact</a></div>
+  </div>
+  <div class="col-lg-12 pt-3 d-flex justify-content-center">
+    <button class="button-twitter mx-3" data-url="https://www.motododo.fr"><i class="fab fa-twitter fa-lg"></i> Partager</button>
+    <button class="button-facebook mx-3" data-url="https://www.motododo.fr"><i class="fab fa-facebook fa-lg"></i> Partager</button>
+  </div>
+</footer>
+
+<div class="cookie-container">
+    <p class="cookieparagraph">
+      Motododo utilise des cookies pour une meilleure expérience.<br>
+      Pour en savoir plus sur les cookies, rendez-vous sur le <a href="https://www.cnil.fr/fr/cookies-traceurs-que-dit-la-loi" target="_blank">CNIL website</a>
+    </p>
+
+    <button class="cookie-btn">
+      J'accepte
+    </button>
+</div>
+<script src="/static/js/cookie.js"></script>

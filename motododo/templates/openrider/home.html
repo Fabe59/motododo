@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<header class="masthead d-flex">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-10 align-self-end">
+                <h1 class="text-white font-weight-bold">MotoDodo : l'hébergement motard</h1>
+                <hr class="divider my-4" />
+            </div>
+            <div class="col-lg-7 col-xl-5 align-self-baseline">
+                <p class="text-white-75">Trouvez un logement confortable pour vous et votre moto</p>
+                <p class="text-white-75 mb-5">Appuyez sur 'Tous les hébergements',  indiquez une ville pour effectuer une recherche plus précise ou géolocalisez vous pour voir les hebergments les plus proches</p>
+                <form class="form-inline justify-content-center pb-3" action="{% url 'accomodation:search' %}" method="GET">
+                    <input type="search" name="search" id="searchbox2" class="col-sm-6 col-8 form-control input-group" placeholder="Entrez le nom d'une ville" autofocus>
+                    <input class="btn btn-primary js-scroll-trigger" id="searchbutton2" type="submit" value="">
+                </form>
+                <form class="pb-5" action="{% url 'accomodation:geoloc' %}" method="GET">
+                    <input type="hidden" name="coord" value="" id="js_data_input">
+                    <div id="geolocform">
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+                <p class="text-white-75 font-weight-light mb-2">La communauté MotoDodo compte {{ users_total }} utilisateur{{ users_total|pluralize }}.</p>
+                <p class="text-white-75 font-weight-light mb-2">MotoDodo référence {{ accomodation_total }} hébergement{{ accomodation_total|pluralize }}.</p>
+                <p class="text-white-75 font-weight-light mb-2">{{ accomodation_comment_total }} commentaire{{ accomodation_comment_total|pluralize }} laissé(s)</p>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="page-section bg-primary d-flex" id="about">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="text-white mt-0">MotoDodo: c'est quoi?</h2>
+                <hr class="divider my-4" />
+                <p class="text-white-80">MotoDodo est une plateforme 100% communautaire permettant aux motards visitant (ou traversant) la France de trouver un hébergement qui répond à leurs besoins.
+                    MotoDodo n'a aucune vocation commerciale.
+                    Ce site vivra et grandira grâce à vous. C'est vous qui nous soumettrez des hebergements afin d'étendre l'offre disponible.  
+                    MotoDodo a pour unique but de centraliser une offre d'hébergements adapatés pour recevoir le pilote ET sa machine dans les meilleures conditions. 
+                    C'est pourquoi, un des critères de référencement est le type de parking.
+                    Dans tous les hebergements, vous retrouverez ce dernier. Il peut être de différents types : garage, couvert ou fermé. 
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section bg-dark text-white">
+    <div class="container text-center">
+        <h3 class="slider-title">Les derniers hébergements :</h3>
+    <div class="for_slick_slider">
+        {% for elt in latest %}
+            <a href="{% url 'accomodation:details' elt.auto_increment_id %}">
+            <div class="img-last">
+                {% if elt.image %}<img src="{{ elt.image.url }}" alt="{{ elt.name }}">{% endif %}
+                <div class="overlay"></div>
+            </div>
+            </a>            
+        {% endfor %}
+    </div>
+</section>
+<section class="page-section d-flex" id="contact">
+    <div class="container">
+        <div class="mask rgba-indigo-strong d-flex justify-content-center align-items-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 mb-5 mt-md-0 white-text text-center text-md-left wow fadeInLeft" data-wow-delay="0.3s">
+                <h1 class="display-4 font-weight-bold">Nous contacter</h1>
+                <hr class="hr-light">
+                <h6 class="mb-3">Une question? Une idée pour faire évoluer MotoDodo? N'hésitez pas à nous contacter. On adooooore échanger avec vous.</h6>
+              </div>
+              <div class="col-md-6 col-xl-6 mb-4">
+                <div class="card wow fadeInRight" data-wow-delay="0.3s">
+                  <div class="card-body z-depth-2">
+                    <div class="text-center">
+                      <h3 class="dark-grey-text">
+                        <strong>Nous écrire:</strong>
+                      </h3>
+                      <hr>
+                    </div>
+                    <form method="POST" action="{% url 'users:contact' %}">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        {{ form.contact_name.errors }}
+                        <label for="{{ form.contact_name.id_for_label }}">Nom</label>
+                        {{ form.contact_name }}
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-envelope prefix grey-text"></i>
+                        {{ form.contact_email.errors }}
+                        <label for="{{ form.contact_email.id_for_label }}">Email</label>
+                        {{ form.contact_email }}
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-pencil-alt prefix grey-text"></i>
+                        {{ form.content.errors }}
+                        <label for="{{ form.content.id_for_label }}">Message</label>
+                        {{ form.content }}
+                    </div>
+                    <div class="text-center mt-3">
+                        <button class="btn btn-indigo" type="submit">Envoyer</button>
+                    </div>
+                    </form>
+</section>
+<script type="text/javascript" src="/static/js/searchbutton.js"></script>
+<script type="text/javascript" src="/static/js/slick.js"></script>
+<script type="text/javascript" src="/static/js/geoloc.js"></script>
+
+{% endblock %}

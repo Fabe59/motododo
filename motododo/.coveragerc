@@ -1,0 +1,19 @@
+[run]
+omit = 
+    accomodation/apps.py
+    accomodation/__init__.py
+    accomodation/admin.py
+    accomodation/db.py
+    accomodation/constants.py
+    accomodation/migrations/*
+    openrider/__init__.py
+    openrider/asgi.py
+    openrider/migrations/*
+    openrider/wsgi.py
+    openrider/settings.py
+    manage.py
+    users/apps.py
+    users/__init__.py
+    users/admin.py
+    accomodation/migrations/*
+    autocomplete/apps.py
