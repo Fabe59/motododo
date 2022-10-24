@@ -1,4 +1,4 @@
-# Projet 13 : OpenRider  
+# Projet 13 : MotoDodo  
   
 ## Description:  
 MotoDodo is a web application allowing motorcyclists to find suitable accommodation for themselves and their motorcycles.  
