@@ -2,7 +2,7 @@
   
 ## Description:  
 MotoDodo is a web application allowing motorcyclists to find suitable accommodation for themselves and their motorcycles.  
-MotoDodo is available at : https://www.motododo.azurewebsites.net
+MotoDodo is available at : https://motododo.azurewebsites.net
   
 ### Install PostgreSQL and configure a database
 
