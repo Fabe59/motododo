@@ -23,7 +23,7 @@ jobs:
           python-version: '3.7'
 
       - name: Create and start virtual environment
-        run: pip install --upgrade virtualenv && python -m venv venv && source venv/bin/activate
+        run: pip install --upgrade virtualenv && virtualenv -p python3 venv
       
       - name: Install dependencies
         run: pip install -r requirements.txt
