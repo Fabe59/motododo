@@ -10,6 +10,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  WEBAPP_NAME: 'motododo'  # Replace with the name of your Azure web app  
+
 jobs:
   build:
     runs-on: ubuntu-latest
