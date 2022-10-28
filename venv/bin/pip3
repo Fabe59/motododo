@@ -1,4 +1,4 @@
-#!/home/fabrice/motododo/venv/bin/python
+#!/home/fabrice/motododo/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
