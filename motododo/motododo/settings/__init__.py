@@ -23,13 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.environ('SECRET_KEY')
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = False
 
-ALLOWED_HOSTS = os.environ("ALLOWED_HOSTS")
+ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS']
 
 # Application definition
 
@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'motododo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ("DBNAME"),
-        'USER': os.environ("DBUSER"),
-        'PASSWORD': os.environ("DBPASSWD"),
-        'HOST': os.environ("DBHOST"),
+        'NAME': os.environ['DBNAME'],
+        'USER': os.environ['DBUSER'],
+        'PASSWORD': os.environ['DBPASSWD'],
+        'HOST': os.environ['DBHOST'],
         'PORT': '5432',
     }
 }
@@ -142,11 +142,11 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'users:login'
 
-GOOGLE_RECAPTCHA_SECRET_KEY = os.environ("RECAPTCHAPASSWD")
+GOOGLE_RECAPTCHA_SECRET_KEY = os.environ["RECAPTCHAPASSWD"]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ("MAILLOGIN")
-EMAIL_HOST_PASSWORD = os.environ("MAILPASSWD")
+EMAIL_HOST_USER = os.environ["MAILLOGIN"]
+EMAIL_HOST_PASSWORD = os.environ["MAILPASSWD"]
