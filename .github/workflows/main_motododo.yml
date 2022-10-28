@@ -60,10 +60,7 @@ jobs:
           path: .
           
       - name: Disable static collection and set migration command on App Service
-        uses: Azure/appservice-settings@v1
-        with:  
-          app-name: ${{ env.WEBAPP_NAME }}
-          app-settings-json: '[{ "name": "DISABLE_COLLECTSTATIC", "value": "true" }, { "name": "POST_BUILD_COMMAND",  "value": "python motododo/manage.py makemigrations && python motododo/manage.py migrate && python motododo/manage.py initdb" }, { "name": "SCM_DO_BUILD_DURING_DEPLOYMENT", "value": "true" }, { "name": "DJANGO_ENV", "value": "production"}]'
+        run: python motododo/manage.py makemigrations && python motododo/manage.py migrate && python motododo/manage.py initdb
           
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
