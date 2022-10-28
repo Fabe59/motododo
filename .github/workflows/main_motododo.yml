@@ -28,9 +28,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
       - name: Collect static
         run: python motododo/manage.py collectstatic
 
