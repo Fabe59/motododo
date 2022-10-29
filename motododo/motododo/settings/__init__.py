@@ -29,7 +29,7 @@ SECRET_KEY = str(os.getenv("SECRET_KEY"))
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ['WEBSITE_HOSTNAME']
 
 # Application definition
 
