@@ -28,7 +28,7 @@ SECRET_KEY = str(os.getenv("SECRET_KEY"))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = os.environ['WEBSITE_SITE_NAME']
+ALLOWED_HOSTS = ['motododo.azurewebsites.net']
 
 # Application definition
 
