@@ -45,7 +45,7 @@ jobs:
             . 
             !venv/
 
-deploy-to-webapp:
+  deploy:
     needs: build-and-test
     runs-on: ubuntu-latest
 
